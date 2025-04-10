@@ -53,4 +53,17 @@ describe('MCQ App', () => {
     expect(wrongOption.className).toMatch(/incorrect/);
   });
   
+  test('deselects a selected option when clicked again (toggle off)', () => {
+    render(<App />);
+  
+    // Select a multiple-choice option
+    const option = screen.getByText(/They allow users to leverage ready-to-use/i);
+    fireEvent.click(option); // select
+  
+    // Click it again to deselect
+    fireEvent.click(option); // deselect
+  
+    // After deselecting, it should NOT have "selected" class
+    expect(option.className).not.toMatch(/selected/);
+  });
 });
