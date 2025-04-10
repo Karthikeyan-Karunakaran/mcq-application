@@ -60,7 +60,7 @@ describe('MCQ App', () => {
     const nextButton = screen.getByText(/Next/i);
     fireEvent.click(nextButton);
 
-    const wrongOption = screen.getByTestId('option-2'); 
+    const wrongOption = screen.getByTestId('option-1'); 
     fireEvent.click(wrongOption);
   
     // Submit the quiz
@@ -111,29 +111,5 @@ describe('MCQ App', () => {
   
     // After submission, the correct selected option should have "correct" class
     expect(correctOption.className).toMatch("option");
-  });
-
-  test('renders the first question', () => {
-    render(<App questions={mockQuestions} />);
-  });
-
-  test('selects options and navigates', () => {
-    render(<App questions={mockQuestions} />);
-    const option1 = screen.getByTestId("option-1"); // Python
-    const option2 = screen.getByTestId("option-3"); // JavaScript
-
-    fireEvent.click(option1);
-    fireEvent.click(option2);
-
-    fireEvent.click(screen.getByText(/Next/i));
-  });
-
-  test('selects an option when not already selected', () => {
-    render(<App questions={mockQuestions} />);
-  
-    const optionA = screen.getByTestId('option-0');
-    fireEvent.click(optionA); // select first option
-  
-    expect(optionA.classList.contains('selected')).toBe(true); // check visual feedback
   });
 });

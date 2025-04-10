@@ -78,10 +78,10 @@ const questions = [
     multiple: false
   },
   {
-    question: "Which context holds information about the event that triggered a workflow run?",
-    answer: ["github.event"],
-    options: ["github.event", "github.job", "github.repository", "jobs.<job_id>.result"],
-    multiple: false,
+    question: "How can you reuse a defined workflow in multiple repositories?(Choose two.)",
+    answer: ["By defining the workflow in a central repository", "By using workflow templates"],
+    options: ["By defining the workflow in a central repository", "By creating a reusable action", "By using workflow templates", "By copying the workflow file to each repository"],
+    multiple: true,
   },
 ];
 
