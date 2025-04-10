@@ -2,6 +2,20 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from '../App';
 
+const mockQuestions = [
+  {
+    question: "Which of the following are programming languages?",
+    options: ["HTML", "Python", "CSS", "JavaScript"],
+    answer: ["Python", "JavaScript"],
+    multiple: true,
+  },
+  {
+    question: "What does CSS stand for?",
+    options: ["Cascading Style Sheets", "Creative Style Sheet", "Colorful Style Sheet", "Computer Style Sheet"],
+    answer: ["Cascading Style Sheets"],
+    multiple: false,
+  }
+];
 describe('MCQ App', () => {
   test('renders the first question on load', () => {
     render(<App />);
@@ -97,5 +111,29 @@ describe('MCQ App', () => {
   
     // After submission, the correct selected option should have "correct" class
     expect(correctOption.className).toMatch("option");
+  });
+
+  test('renders the first question', () => {
+    render(<App questions={mockQuestions} />);
+  });
+
+  test('selects options and navigates', () => {
+    render(<App questions={mockQuestions} />);
+    const option1 = screen.getByTestId("option-1"); // Python
+    const option2 = screen.getByTestId("option-3"); // JavaScript
+
+    fireEvent.click(option1);
+    fireEvent.click(option2);
+
+    fireEvent.click(screen.getByText(/Next/i));
+  });
+
+  test('selects an option when not already selected', () => {
+    render(<App questions={mockQuestions} />);
+  
+    const optionA = screen.getByTestId('option-0');
+    fireEvent.click(optionA); // select first option
+  
+    expect(optionA.classList.contains('selected')).toBe(true); // check visual feedback
   });
 });
