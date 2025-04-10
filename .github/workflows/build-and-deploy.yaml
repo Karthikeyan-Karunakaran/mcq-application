@@ -1,0 +1,37 @@
+name: Build and Deploy
+on: push
+jobs:
+  build-and-deploy:
+    name: Build and Deploy the node app
+    runs-on: ubuntu-latest
+    steps:
+      - name: get current version of code
+        uses: actions/checkout@v4
+
+      - name: Build docker image
+        run: |
+          docker build -t my-app:latest .
+
+      - name: login to Docker registry
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: tag and push docker image
+        run: |
+          docker tag my-app:latest ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+
+      - name: Deploy app
+        uses: appleboy/ssh-action@v0.1.6
+        with: 
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+            docker stop myapp || true
+            docker rm myapp || true
+            docker run -d -p 80:3000 --name myapp ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+      
+      - name: Confirm Completion
+        run: echo "Code checkout, Docker build, push, and deployment complete."
