@@ -3,15 +3,84 @@ import "./App.css";
 
 const questions = [
   {
-    question: "Which is true about Starter Workflows ? (Select three.)",
-    answer: ["They allow users to leverage ready-to-use (or requiring minimal changes) workflow templates", "Your organization can create custom starter workflows for users in your organization", "GitHub provides and maintains starter workflows for different categories, languages and tooling "],
-    options: ["Starter workflows cannot call reusable workflows", "Starter workflows are a paid GitHub feature", "Your organization can create custom starter workflows for users in your organization", "Starter workflows are provided ready-to-use and cannot be modified or enhanced", "They allow users to leverage ready-to-use (or requiring minimal changes) workflow templates", "GitHub provides and maintains starter workflows for different categories, languages and tooling"],
-    multiple: true,
+    question: "Which keyword allows you to define environment variables in a GitHub Actions workflow?",
+    answer: ["env"],
+    options: ["vars", "env", "config", "secrets"],
+    multiple: false,
   },
   {
-    question: "Which of the following are programming languages?",
-    answer: ["JavaScript", "Python", "Rust"],
-    options: ["HTML", "JavaScript", "CSS", "Python", "Rust"],
+    question: "Which configuration is appropriate for triggering a workflow to run on webhook events related to check_run actions?",
+    answer: [`on:
+                check_run:
+                  types: [rerequested, completed]`
+            ],
+    options: [`on:
+                check_run:
+                  types: [started]`, 
+              `on:
+                check_run:
+                  types: [rerequested, completed]`,
+              `on:
+                check_run:
+                  filter: [requested]`,
+              `on:
+                check_run:
+                  type: [closed]`],
+    multiple: false,
+  },
+  {
+    question: `When will job3 run?
+                  jobs:
+                    job1:
+                    job2:
+                      needs: job1
+                    job3:
+                      if: \${{ always() }}
+                        needs: [job1, job2]`,
+    answer: ["job3 will run after job1 and job2 have completed, regardless of whether they were successful"],
+    options: ["You cannot use if: ${{ always() }} and needs together. The workflow will fail on startup.", "job3 will run after both job1 and job2 have failed", "job3 will run after job1 and job2 have completed, regardless of whether they were successful", "job3 will run after job1 and job2 have been successfully completed"],
+    multiple: false,
+  },
+  {
+    question: "What is the default shell used by GitHub Actions on Windows runners?",
+    answer: ["powershell"],
+    options: ["sh", "bash","cmd", "powershell"],
+    multiple: false,
+  },
+  {
+    question: "Where can you find network connectivity logs for a GitHub self-hosted-runner?",
+    answer: ["In the _diag folder directly on the runner machine"],
+    options: ["On GitHub.com on that specific Runner's page", "In the job run logs of a job that ran on that Runner", "In the _diag folder directly on the runner machine", "In the job run logs of a job that ran on that Runner with debug logging enabled"],
+    multiple: false,
+  },
+  {
+    question: "Is this statement true? Not all steps run actions, but all actions run as a step",
+    answer: ["True"],
+    options: ["True", "False"],
+    multiple: false,
+  },
+  {
+    question: "Which is true about environments?",
+    answer: ["Each job in a workflow can reference a single environment."],
+    options: ["Each job in a workflow can reference a maximum of two environments.", "Each job in a workflow can reference a single environment.", "Each workflow can reference a maximum of two environments.", "Each workflow can reference a single environment."],
+    multiple: false,
+  },
+  {
+    question: "How can organizations which are using GitHub Enterprise Server enable automatic syncing of third party GitHub Actions hosted on GitHub.com to their GitHub Enterprise Server instance?",
+    answer: ["Using GitHub Connect"],
+    options: ["Using GitHub Connect", "GitHub Enterprise Server cannot use GitHub.com Actions because of it's on-premise nature and no internet access", "GitHub Enterprise Server has access to all GitHub.com Actions by default", "Using actions-sync tool"],
+    multiple: false,
+  },
+  {
+    question: "What are activity types of an event used for ?",
+    answer: ["Limiting workflow runs to specific activity types using the types filter"],
+    options: ["Reacting to new activity on a repository (e.g new contributor)", "Checking if the activity comes from an user or a bot", "Limiting workflow runs to specific activity types using the types filter"],
+    multiple: false
+  },
+  {
+    question: "How can you reuse a defined workflow in multiple repositories?(Choose two.)",
+    answer: ["By defining the workflow in a central repository", "By using workflow templates"],
+    options: ["By defining the workflow in a central repository", "By creating a reusable action", "By using workflow templates", "By copying the workflow file to each repository"],
     multiple: true,
   },
 ];
