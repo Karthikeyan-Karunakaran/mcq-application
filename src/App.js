@@ -99,6 +99,7 @@ export default function App() {
             key={index}
             onClick={() => handleOptionClick(option)}
             className={getOptionClass(option)}
+            data-testid={`option-${index}`}
           >
             <strong>{String.fromCharCode(65 + index)}.</strong> {option}
           </div>
