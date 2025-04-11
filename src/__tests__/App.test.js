@@ -2,20 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from '../App';
 
-const mockQuestions = [
-  {
-    question: "Which of the following are programming languages?",
-    options: ["HTML", "Python", "CSS", "JavaScript"],
-    answer: ["Python", "JavaScript"],
-    multiple: true,
-  },
-  {
-    question: "What does CSS stand for?",
-    options: ["Cascading Style Sheets", "Creative Style Sheet", "Colorful Style Sheet", "Computer Style Sheet"],
-    answer: ["Cascading Style Sheets"],
-    multiple: false,
-  }
-];
 describe('MCQ App', () => {
   test('renders the first question on load', () => {
     render(<App />);
