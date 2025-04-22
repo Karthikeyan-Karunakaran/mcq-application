@@ -5,7 +5,7 @@ metadata:
   namespace: default  # Change to your desired namespace
 spec:
   rules:
-  - host: 192.168.67.2
+  - host: mcq-app.local
     http:
       paths:
       - path: /
