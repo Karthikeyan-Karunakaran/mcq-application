@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcq-app
+  namespace: argocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mcq-app
+  template:
+    metadata:
+      labels:
+        app: mcq-app
+    spec:
+      containers:
+        - name: mcq-app
+          image: karthikeyank2004/myapp:v1.0.25
+          ports:
+            - containerPort: 3000 
+          env:
+            - name: NODE_ENV
+              value: "production" 
