@@ -5,7 +5,7 @@ metadata:
   namespace: default  # Change to your desired namespace
 spec:
   rules:
-  - host: mcq-app.local  # Use a custom domain or an IP address for Minikube (e.g., minikube_ip)
+  - host: 192.168.67.2
     http:
       paths:
       - path: /
