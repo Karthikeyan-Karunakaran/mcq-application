@@ -1,0 +1,25 @@
+name: Build Dev Image
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build-and-deploy:
+    name: Build and Deploy the node app
+    runs-on: ubuntu-latest
+    steps:
+      - name: get current version of code
+        uses: actions/checkout@v4
+
+      - name: Build docker image
+        run: |
+          docker build -t my-app-dev:latest .
+
+      - name: login to Docker registry
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: tag and push docker image
+        run: |
+          docker tag my-app-dev:latest ${{ secrets.DOCKER_USERNAME }}/myapp-dev:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/myapp-dev:latest
