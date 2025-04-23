@@ -5,7 +5,7 @@ metadata:
   namespace: dev
 spec:
   rules:
-  - host: mcq-app.local
+  - host: mcq-app-dev.local
     http:
       paths:
       - path: /
