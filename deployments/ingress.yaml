@@ -5,10 +5,10 @@ metadata:
   namespace: prod
 spec:
   rules:
-  - host: mcq-app-dev.local
+  - host: mcq-app.local
     http:
       paths:
-      - path: /dev
+      - path: /
         pathType: Prefix
         backend:
           service:
