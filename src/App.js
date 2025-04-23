@@ -129,7 +129,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1 className="header">Github MCQ</h1>
+      <h1 className="header">Github MCQ DEV</h1>
 
       <div className="progress-bar">
         <div
