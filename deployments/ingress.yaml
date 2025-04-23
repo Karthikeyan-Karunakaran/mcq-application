@@ -8,7 +8,7 @@ spec:
   - host: mcq-app-dev.local
     http:
       paths:
-      - path: /
+      - path: /dev
         pathType: Prefix
         backend:
           service:
