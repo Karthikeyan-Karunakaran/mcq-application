@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mcq-app-ingress
-  namespace: default  # Change to your desired namespace
+  namespace: prod
 spec:
   rules:
   - host: mcq-app.local
