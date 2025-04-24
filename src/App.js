@@ -77,12 +77,6 @@ const questions = [
     options: ["Reacting to new activity on a repository (e.g new contributor)", "Checking if the activity comes from an user or a bot", "Limiting workflow runs to specific activity types using the types filter"],
     multiple: false
   },
-  {
-    question: "How can you reuse a defined workflow in multiple repositories?(Choose two.)",
-    answer: ["By defining the workflow in a central repository", "By using workflow templates"],
-    options: ["By defining the workflow in a central repository", "By creating a reusable action", "By using workflow templates", "By copying the workflow file to each repository"],
-    multiple: true,
-  },
 ];
 
 export default function App() {
@@ -129,7 +123,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1 className="header">Github MCQ</h1>
+      <h1 className="header">Github MCQ DEV</h1>
 
       <div className="progress-bar">
         <div
