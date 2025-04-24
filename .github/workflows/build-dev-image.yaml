@@ -24,5 +24,5 @@ jobs:
 
       - name: tag and push docker image
         run: |
-          docker tag my-app-dev:${{ env.VERSION_TAG }} ${{ secrets.DOCKER_USERNAME }}/myapp-dev:${{ env.VERSION_TAG }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/myapp-dev:${{ env.VERSION_TAG }}
+          docker tag my-app:${{ env.VERSION_TAG }} ${{ secrets.DOCKER_USERNAME }}/myapp:${{ env.VERSION_TAG }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/myapp:${{ env.VERSION_TAG }}
