@@ -2,13 +2,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: mcq-app-ingress
-  namespace: prod
+  namespace: test
 spec:
   rules:
-  - host: mcq-app.local
+  - host: mcq-app-test.local
     http:
       paths:
-      - path: /
+      - path: /test
         pathType: Prefix
         backend:
           service:
