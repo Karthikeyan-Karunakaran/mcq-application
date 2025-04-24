@@ -4,6 +4,7 @@ metadata:
   name: mcq-app-service
 spec:
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 3000
-      nodePort: 31002
+      nodePort: 32002
