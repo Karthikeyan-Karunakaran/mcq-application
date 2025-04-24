@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mcq-app-ingress
+spec:
+  rules:
+    - host: mcq-app.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mcq-app-service
+                port:
+                  number: 80
