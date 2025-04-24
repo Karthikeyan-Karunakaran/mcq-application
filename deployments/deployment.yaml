@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: mcq-app
-          image: v1.0.2
+          image: karthikeyank2004/myapp:v1.0.2
           ports:
             - containerPort: 3000 
