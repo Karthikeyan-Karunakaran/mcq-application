@@ -1,8 +1,6 @@
 namespace: prod-us
 resources:
-  - ../../deployment.yaml
-  - ../../service.yaml
-  - ../../ingress.yaml
+  - ../../
 patchesStrategicMerge:
   - patch-replicas.yaml
   - patch-names.yaml
