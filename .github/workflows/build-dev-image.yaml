@@ -16,8 +16,7 @@ jobs:
         
       - name: Build docker image
         run: |
-          docker build -t my-app.${{ env.VERSION_TAG }} .
-          echo "docker images"
+          docker build -t my-app:${{ env.VERSION_TAG }} .
 
       - name: login to Docker registry
         run: |
