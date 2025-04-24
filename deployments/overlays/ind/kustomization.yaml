@@ -1,0 +1,7 @@
+namespace: prod-ind
+resources:
+  - ../../
+patchesStrategicMerge:
+  - patch-replicas.yaml
+  - patch-names.yaml
+  - patch-nodeport.yaml
