@@ -11,13 +11,12 @@ jobs:
       - name: get current version of code
         uses: actions/checkout@v4
 
-      - name: Set version tag
-        id: vars
-        run: echo "VERSION_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Read version from VERSION file
+        run: echo "VERSION_TAG=v$(cat VERSION)" >> $GITHUB_ENV
         
       - name: Build docker image
         run: |
-          docker build -t my-app-dev:latest .
+          docker build -t my-app.${{ env.VERSION_TAG }} .
 
       - name: login to Docker registry
         run: |
@@ -25,5 +24,5 @@ jobs:
 
       - name: tag and push docker image
         run: |
-          docker tag my-app-dev:latest ${{ secrets.DOCKER_USERNAME }}/myapp-dev:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/myapp-dev:latest
+          docker tag my-app-dev:${{ env.VERSION_TAG }} ${{ secrets.DOCKER_USERNAME }}/myapp-dev:${{ env.VERSION_TAG }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/myapp-dev:${{ env.VERSION_TAG }}
