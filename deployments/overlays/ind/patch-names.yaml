@@ -5,6 +5,9 @@ metadata:
   labels:
     app: mcq-app-prod-ind
 spec:
+  selector:
+    matchLabels:
+      app: mcq-app-prod-ind
   template:
     metadata:
       labels:
