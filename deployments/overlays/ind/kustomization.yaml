@@ -1,6 +1,6 @@
 namespace: prod-ind
 resources:
-  - ../../
+  - ../../base
 patchesStrategicMerge:
   - patch-replicas.yaml
   - patch-names.yaml
