@@ -15,9 +15,6 @@ spec:
     spec:
       containers:
         - name: mcq-app
-          image: karthikeyank2004/myapp-dev:latest
+          image: karthikeyank2004/myapp:v1.0.1
           ports:
             - containerPort: 3000 
-          env:
-            - name: NODE_ENV
-              value: "development" 
