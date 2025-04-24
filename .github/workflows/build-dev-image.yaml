@@ -11,6 +11,10 @@ jobs:
       - name: get current version of code
         uses: actions/checkout@v4
 
+      - name: Set version tag
+        id: vars
+        run: echo "VERSION_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+        
       - name: Build docker image
         run: |
           docker build -t my-app-dev:latest .
