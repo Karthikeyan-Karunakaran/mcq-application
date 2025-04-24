@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcq-app
+  labels:
+    app: mcq-app-test
+spec:
+  selector:
+    matchLabels:
+      app: mcq-app-test
+  template:
+    metadata:
+      labels:
+        app: mcq-app-test
