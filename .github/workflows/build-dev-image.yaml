@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - dev
+    paths-ignore:
+      - 'deployments/**'
 jobs:
   build-and-deploy:
     name: Build and Deploy the node app
