@@ -77,6 +77,12 @@ const questions = [
     options: ["Reacting to new activity on a repository (e.g new contributor)", "Checking if the activity comes from an user or a bot", "Limiting workflow runs to specific activity types using the types filter"],
     multiple: false
   },
+  {
+    question: "What are activity types of an event used for ?",
+    answer: ["Limiting workflow runs to specific activity types using the types filter"],
+    options: ["Reacting to new activity on a repository (e.g new contributor)", "Checking if the activity comes from an user or a bot", "Limiting workflow runs to specific activity types using the types filter"],
+    multiple: false
+  },
 ];
 
 export default function App() {
