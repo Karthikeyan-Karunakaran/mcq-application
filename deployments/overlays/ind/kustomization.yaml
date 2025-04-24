@@ -5,3 +5,4 @@ patchesStrategicMerge:
   - patch-replicas.yaml
   - patch-names.yaml
   - patch-nodeport.yaml
+  - patch-ingress-path.yaml
